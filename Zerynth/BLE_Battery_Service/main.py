@@ -1,9 +1,3 @@
-################################################################################
-# BLE Battery Service 
-#
-# Created by Zerynth Team 2016 CC
-# Author: G. Baldi
-###############################################################################
 
 import streams
 # import a BLE driver: in this example we use NRF52
@@ -17,13 +11,13 @@ streams.serial()
 bledrv.init()
 
 # Set GAP name
-ble.gap("Zerynth")
+ble.gap("RBNanoHRM")
 
 # Create a GATT Service: let's try a Battery Service (uuid is 0x180F)
-s = ble.Service(0x180F)
+s = ble.Service(0x180D)
 
 # Create a GATT Characteristic: (uuid for Battery Level is 0x2A19, and it is an 8-bit number)
-c = ble.Characteristic(0x2A19,ble.NOTIFY | ble.READ,1,"Battery Level",ble.NUMBER)
+c = ble.Characteristic(0x2A37,ble.NOTIFY | ble.READ,1,"Heart Rate",ble.NUMBER)
 
 # Add the GATT Characteristic to the Service
 s.add_characteristic(c)
